@@ -1,11 +1,11 @@
 //jshint esversion:6
-
+require ("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const _ = require("lodash");
 const mongoose=require("mongoose");
-mongoose.connect("mongodb+srv://admin-draco:Test123@cluster0.ae0t7.mongodb.net/postdb?retryWrites=true&w=majority",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://admin-"+process.env.ADMIN+":"+process.env.PASSWORD+"@cluster0.ae0t7.mongodb.net/postdb?retryWrites=true&w=majority",{useNewUrlParser:true});
 const postschema=new mongoose.Schema({
   title:String,
   content:String
